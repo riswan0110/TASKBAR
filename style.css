@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #792e18;
+    font-family: Arial, sans-serif;
+}
+
+.todo-container {
+    width: 400px;
+    max-width: 90%;
+
+    background:#be8b3e;
+    padding: 25px;
+
+    border-radius: 15px;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+#taskInput {
+    flex: 1;
+
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    outline: none;
+}
+
+#addButton {
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #22c55e;
+    color: white;
+
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#addButton:hover {
+    background: #16a34a;
+}
+
+#taskList {
+    list-style: none;
+    margin-top: 20px;
+}
+
+#taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #374151;
+    color: white;
+
+    padding: 12px;
+    margin-bottom: 10px;
+
+    border-radius: 8px;
+}
+
+#taskList li.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.delete-button {
+    background: #ef4444;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 7px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background: #dc2626;
+}
+
+.task-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+    margin-top: 20px;
+}
+
+#clearButton {
+    background: #6b7280;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+#clearButton:hover {
+    background: #4b5563;
+}
+/* 📱 Phone Layout */
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .todo-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .input-area {
+        gap: 8px;
+    }
+
+    #taskInput {
+        min-width: 0;
+        font-size: 15px;
+    }
+
+    #addButton {
+        padding: 12px 15px;
+    }
+
+    #taskList li {
+        font-size: 15px;
+        gap: 10px;
+    }
+
+    .delete-button {
+        padding: 7px 9px;
+        flex-shrink: 0;
+    }
+
+    .task-info {
+        font-size: 14px;
+    }
+}
+/* ✨ Smooth animations */
+
+/* Add button animation */
+#addButton {
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+#addButton:hover {
+    transform: scale(1.05);
+}
+
+#addButton:active {
+    transform: scale(0.95);
+}
+
+
+/* Delete button animation */
+.delete-button {
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.delete-button:hover {
+    transform: scale(1.05);
+}
+
+.delete-button:active {
+    transform: scale(0.95);
+}
+
+
+/* Clear button animation */
+#clearButton {
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+#clearButton:hover {
+    transform: scale(1.05);
+}
+
+#clearButton:active {
+    transform: scale(0.95);
+}
+
+
+/* Task appears smoothly */
+#taskList li {
+    animation: taskAppear 0.3s ease;
+}
+
+@keyframes taskAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Completed task animation */
+#taskList li.completed {
+    transition: opacity 0.3s ease;
+}
